@@ -6,8 +6,9 @@ export default class App extends Component{
     super(props);
     this.state = {
       number:0,
-      value:0,
-      color:""
+      value:'',
+      text:null,
+      class:""
     }
   }
 
@@ -23,30 +24,46 @@ export default class App extends Component{
   
   handlesubmit = () =>{
     if(Math.abs(this.state.number-parseInt(this.state.value))===0){
-      this.setState({color:"green"});
+      this.setState({class:"text-success",text:"Success!!"});
     }
     else if(Math.abs(this.state.number-parseInt(this.state.value))<=4){
-      this.setState({color:"red"});
+      this.setState({class:"text-danger",text:"Hot!!"});
     }
     else if(Math.abs(this.state.number-parseInt(this.state.value))<=15){
-      this.setState({color:"yellow"});
+      this.setState({class:"text-warning",text:"Warm!!"});
     }
-    else{
-      this.setState({color:"blue"});
+    else if(Math.abs(this.state.number-parseInt(this.state.value))>15){
+      this.setState({class:"text-primary",text:"Cold!!"});
     }
   }
 
   render(){
     return(
-      <div className="mt-5 container">
-      <h1 className="text-center text-primary">Random Number Generator</h1>
-      <div className="row justify-content-center mt-5">
-      <div className="col-5">
-      <input className="w-100" type="number" value={this.state.value} onChange={this.handlechange} placeholder="Enter number" name="value"/>
-      <button className="w-100 btn btn-outline-primary mt-3" onClick={this.handlesubmit}>Submit</button>
-      <p>{this.state.color}</p>
-      </div>
-      </div>
+      <div className="container " >
+        <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+          <a
+            className="navbar-brand col-sm-3 col-md-2 mr-0"
+            href="#"
+            >
+            WebApp
+          </a>
+        </nav>
+        <h1 className="text-center text-info mt-5 pt-5">Number Guessing Web App</h1>
+        <div className="row justify-content-center mt-5">
+          <div className="col-5">
+            <input 
+            className="w-100 border border-top-0 border-left-0 border-right-0 border-info rounded pl-2" 
+            type="number" 
+            value={this.state.value} 
+            onChange={this.handlechange} 
+            placeholder="Enter number" 
+            name="value"/>
+            <button className="w-100 btn btn-outline-primary mt-3" onClick={this.handlesubmit}>Submit</button>
+            {
+              this.state.text?<p className={`text-center h3 mt-3 ${this.state.class}`}>{this.state.text}</p>:<p></p>
+            }
+          </div>
+        </div>
       </div>
     );
   }
