@@ -13,7 +13,7 @@ export default class App extends Component{
 
   componentDidMount  = () =>{
     this.setState({
-      number:Math.floor(Math.random()*101) 
+      number:Math.floor(Math.random()*100+1) 
     },()=> console.log(this.state.number));
   }
   //to handle input text
@@ -58,10 +58,12 @@ export default class App extends Component{
           <div className="col-5">
             <input 
             className="w-100 border border-top-0 border-left-0 border-right-0 border-info rounded pl-2" 
-            type="text" 
+            type="number" 
             value={this.state.value} 
             onChange={this.handlechange} 
             placeholder="Enter number" 
+            min={1}
+            max={100}
             name="value"/>
             <button className="w-100 btn btn-outline-primary mt-3" onClick={this.handlesubmit}>Submit</button>
             {
@@ -69,6 +71,14 @@ export default class App extends Component{
             }
           </div>
         </div>
+        <p className="h4 mt-3 pt-3">Rules:</p>
+        <ul className="text-capitalize">
+        <li>Enter number between 1-100.</li>
+        <li>if Difference is zero => Success.</li>
+        <li>if Difference is less than 4 => Hot.</li>
+        <li>if Difference is less than 15 => Warm.</li>
+        <li>if Difference is greater than 15 => Cold.</li>
+        </ul>
       </div>
     );
   }
