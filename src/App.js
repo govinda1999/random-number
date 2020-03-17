@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default class App extends Component{
   constructor(props){
@@ -17,12 +16,18 @@ export default class App extends Component{
       number:Math.floor(Math.random()*101) 
     },()=> console.log(this.state.number));
   }
-
+  //to handle input text
   handlechange = (e) =>{
     this.setState({ [e.target.name]: e.target.value });
   }
-  
+  //to handle submit button
   handlesubmit = () =>{
+    //error handling
+    if(isNaN(this.state.value) || this.state.value===""){
+      this.setState({text:null});
+      window.alert("Enter Proper Number");
+    }
+    //check for condition
     if(Math.abs(this.state.number-parseInt(this.state.value))===0){
       this.setState({class:"text-success",text:"Success!!"});
     }
@@ -39,11 +44,11 @@ export default class App extends Component{
 
   render(){
     return(
-      <div className="container " >
+      <div className="container" >
         <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
           <a
             className="navbar-brand col-sm-3 col-md-2 mr-0"
-            href="#"
+            href="http://localhost:3000"
             >
             WebApp
           </a>
@@ -53,7 +58,7 @@ export default class App extends Component{
           <div className="col-5">
             <input 
             className="w-100 border border-top-0 border-left-0 border-right-0 border-info rounded pl-2" 
-            type="number" 
+            type="text" 
             value={this.state.value} 
             onChange={this.handlechange} 
             placeholder="Enter number" 
