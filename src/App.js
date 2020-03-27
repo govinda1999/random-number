@@ -9,8 +9,7 @@ export default class App extends Component{
     super(props);
     this.state = {
       number:0,
-      text:null,
-      class:""
+      userinput:0
     }
   }
 
@@ -22,6 +21,7 @@ export default class App extends Component{
   //to handle submit button
   handlesubmit = (value) =>{
     //error handling
+    this.setState({userinput:value})
     if(isNaN(value)||value===""){
       this.setState({text:null});
       window.alert("Enter Proper Number");
@@ -49,7 +49,7 @@ export default class App extends Component{
         <div className="row justify-content-center mt-5">
           <div className="col-5">
             <UserInput handlesubmit={this.handlesubmit}/>
-            <Result text={this.state.text} class={this.state.class}/>
+            <Result actual={this.state.number} userinput={this.state.userinput}/>
           </div>
         </div>
         <Rule />
