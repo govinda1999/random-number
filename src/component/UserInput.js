@@ -20,8 +20,11 @@ export default class UserInput extends Component{
             placeholder="Enter number" 
             min={1}
             max={100}
-            name="value"/>
-            <button className="w-100 btn btn-outline-primary mt-3" onClick={(event)=>this.props.handlesubmit(this.state.value)}>Submit</button>
+            name="value"
+            data-testid="input_id"/>
+            <button className="w-100 btn btn-outline-primary mt-3" onClick={(event)=>this.props.handlesubmit(this.state.value)}
+            data-testid="submit_id"
+            >Submit</button>
             </>
 		);
 	}

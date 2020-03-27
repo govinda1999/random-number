@@ -1,6 +1,6 @@
 import React from 'react';
 import { unmountComponentAtNode,render} from "react-dom";
-import Result from '../component/Result';
+import NavBar from '../component/NavBar';
 import { act } from "react-dom/test-utils";
 
 let container = null;
@@ -15,11 +15,17 @@ afterEach(() => {
   container = null;
 });
 
-it('Result component render properly',()=>{
+it('NavBar component render properly',()=>{
 	act(() => {
-		render(<Result actual={20} userinput={20}/>, container);  
+		render(<NavBar />, container);  
 	});
 	expect(container.textContent)
-	.toBe("Success!!");
+	.toBe("WebApp");
+
+	act(() => {
+		render(<NavBar />, container);  
+	});
+	expect(container.textContent)
+	.not.toBe("")
 })
 
