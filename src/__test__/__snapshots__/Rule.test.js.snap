@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rule component render properly 1`] = `
+"<p class=\\"h4 mt-3 pt-3\\">Rules:</p>
+<ul class=\\"text-capitalize\\">
+  <li>Enter number between 1-100.</li>
+  <li>if Difference is zero =&gt; Success.</li>
+  <li>if Difference is less than 4 =&gt; Hot.</li>
+  <li>if Difference is less than 15 =&gt; Warm.</li>
+  <li>if Difference is greater than 15 =&gt; Cold.</li>
+</ul>"
+`;

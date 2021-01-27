@@ -23,7 +23,22 @@ export default class App extends Component{
     this.setState({userinput:value})
   }
 
+  sum = () =>{
+    const id = 1;
+    const url = `https://api.spectator.earth/satellite/${id}`;
+    fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(err => console.log(err));
+  }
+
+
   render(){
+    this.sum();
     return(
       <div className="container" >
         <NavBar />

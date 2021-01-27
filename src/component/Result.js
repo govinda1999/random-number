@@ -2,7 +2,7 @@ import React from 'react';
 export default function Result({userinput,actual}){
 
 	if(userinput===0){
-		return <p></p>;
+		return "";
 	}
 	if(isNaN(userinput)||userinput===""){
       window.alert("Enter Proper Number");

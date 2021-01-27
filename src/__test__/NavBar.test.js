@@ -22,10 +22,10 @@ it('NavBar component render properly',()=>{
 	expect(container.textContent)
 	.toBe("WebApp");
 
-	act(() => {
-		render(<NavBar />, container);  
-	});
-	expect(container.textContent)
-	.not.toBe("")
+	// act(() => {
+	// 	render(<NavBar />, container);  
+	// });
+	// expect(container.textContent)
+	// .not.toBe("")
 })
 
